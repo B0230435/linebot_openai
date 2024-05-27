@@ -22,9 +22,6 @@ static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 line_bot_api = LineBotApi(os.getenv('CHANNEL_ACCESS_TOKEN'))
 # Channel Secret
 handler = WebhookHandler(os.getenv('CHANNEL_SECRET'))
-# OPENAI API Key初始化設定
-openai.api_key = os.getenv('OPENAI_API_KEY')
-
 
 def QA_response(text):
     client = QuestionAnsweringClient(endpoint, credential)
@@ -36,6 +33,7 @@ def QA_response(text):
             deployment_name=deployment
         )
     return output.answers[0].answer
+
 
 def words_English_to_Chinese(word):
     # 字母與數字的映射字典
