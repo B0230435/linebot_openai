@@ -33,11 +33,7 @@ def QA_response(text):
         )
     return output.answers[0].answer
 
-# 定義你要回覆的訊息內容
-reply_message = TextSendMessage(text='Hello, world!')
 
-# 發送回覆訊息
-line_bot_api.reply_message('REPLY_TOKEN', reply_message)
 
 # 監聽用戶發送的訊息事件
 def handle_message(event):
