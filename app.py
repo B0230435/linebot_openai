@@ -33,6 +33,16 @@ def QA_response(text):
         )
     return output.answers[0].answer
 
+# 監聽用戶發送的訊息事件
+def handle_message(event):
+    user_message = event.message.text
+    
+    # 如果用戶發送的訊息是 "1"，則回覆 "2"
+    if user_message == '1':
+        reply_message = TextSendMessage(text='2')
+        line_bot_api.reply_message(event.reply_token, reply_message)
+
+
 def words_English_to_Chinese(word):
     # 字母與數字的映射字典
     words_dict = {
